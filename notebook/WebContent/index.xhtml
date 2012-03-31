@@ -4,16 +4,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 	<ui:composition template="WEB-INF/templates/default.xhtml">
 	
 		<ui:define name="content">
 		    
-		    <h:outputText value="Test text!" />
-		    <br />
+		    <p:menubar>
+		    	<p:submenu label="File" icon="ui-icon-document">
+		    		<p:menuitem value="New" />
+		    		<p:menuitem value="Open" />
+		    		<p:menuitem value="Save" />
+		    	</p:submenu>
+		    	<p:submenu label="Edit" icon="ui-icon-pencil">
+		    		<p:menuitem value="Cut" />
+		    		<p:menuitem value="Copy" />
+		    		<p:menuitem value="Paste" /> 
+		    	</p:submenu>
+		    	<p:submenu label="Search" icon="ui-icon-search">
+		    		<p:menuitem value="By Name" />
+		    		<p:menuitem value="By Category" />
+		    	</p:submenu>
+		    </p:menubar>
 		    
-		    <h:commandButton value="Buddin" />
+		    <h:panelGrid columns="2">
+		    
+		    	<h:panelGroup style="display:block; margin-left:200px; margin-right:200px;">
+		    		<p>Keyboard!</p>
+		    		<p:keyboard layout="qwertyBasic" />
+		    	</h:panelGroup>
+		    
+		    	<h:panelGroup style="display:block;">
+		    		<p>Rich text editor!</p> 
+		   			<p:editor />
+		    	</h:panelGroup>
+		    
+		    </h:panelGrid>
 		    
 		</ui:define>
 	
