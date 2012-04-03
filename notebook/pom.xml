@@ -16,11 +16,35 @@
   	</repositories>
   
   	<dependencies>
+  	
+  		<!-- Primefaces -->
 	  	<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>3.2</version>
 		</dependency>
+		
+		<!-- Primefaces (jQuery) Theme -->
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>redmond</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		
+		<!-- Apache Commons FileUpload (used by Primefaces FileUpload) -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		
+		<!-- Apache Commons IO (used by Primefaces FileUpload) -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.1</version>
+		</dependency>
+		
 	</dependencies>
   
 </project>

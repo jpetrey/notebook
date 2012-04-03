@@ -11,6 +11,8 @@
 	
 		<ui:define name="content">
 		    
+		    <p:growl id="messages" showSummary="true" showDetail="true" />
+		    				
 		    <p:menubar>
 		    	<p:submenu label="File" icon="ui-icon-document">
 		    		<p:menuitem value="New" />
@@ -28,19 +30,14 @@
 		    	</p:submenu>
 		    </p:menubar>
 		    
-		    <h:panelGrid columns="2">
+		    <br />
 		    
-		    	<h:panelGroup style="display:block; margin-left:200px; margin-right:200px;">
-		    		<p>Keyboard!</p>
-		    		<p:keyboard layout="qwertyBasic" />
-		    	</h:panelGroup>
+		    <p:inputTextarea value="#{notebookManagerBean.noteText}" rows="15" cols="80" />
 		    
-		    	<h:panelGroup style="display:block;">
-		    		<p>Rich text editor!</p> 
-		   			<p:editor />
-		    	</h:panelGroup>
+		    <p><strong>Click below to type.</strong>  Press Enter to append the text to the note.</p>
+		    <p:keyboard size="80" />
 		    
-		    </h:panelGrid>
+		    <br />
 		    
 		</ui:define>
 	

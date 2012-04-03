@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	
+	</h:head>
+	
+	<h:body>
+	
+		<h:form>
+			<p:dialog visible="true" modal="true" draggable="false" resizable="false" closable="false" showHeader="false"
+				widgetVar="welcome">  
+				<p>Welcome to the #{notebookManagerBean.applicationName}.  Please choose an option below.</p>
+			    <p:commandButton ajax="false" icon="ui-icon-document" value="Start a New Notebook" style="width:100%;" action="index" />
+			    <p:commandButton icon="ui-icon-folder-open" value="Open an Existing Notebook" style="width:100%;" 
+			    	onclick="welcome.hide(); upload.show();" />
+			</p:dialog>
+			
+			<p:dialog modal="true" widgetVar="upload" resizable="false" closable="false" showHeader="false">
+				<p>Click 'choose', or drag and drop a file into the box below.</p>
+				<p:fileUpload fileUploadListener="#{notebookManagerBean.openNotebook}"
+					mode="advanced" auto="true" sizeLimit="1000000" />
+				<br />
+				<p:commandButton icon="ui-icon-arrowthick-1-w" value="Back" onclick="upload.hide(); welcome.show();" />
+			</p:dialog>
+		</h:form>
+	</h:body>
+		    
+</html>

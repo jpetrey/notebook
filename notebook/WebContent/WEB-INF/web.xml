@@ -4,7 +4,7 @@
   <display-name>notebook</display-name>
   
   <welcome-file-list>
-  	<welcome-file>index.xhtml</welcome-file>
+  	<welcome-file>welcome.xhtml</welcome-file>
   </welcome-file-list>
   
   <servlet>
@@ -18,6 +18,16 @@
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
   
+  <filter>
+    <filter-name>PrimeFaces FileUpload Filter</filter-name>
+    <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>PrimeFaces FileUpload Filter</filter-name>
+    <servlet-name>Faces Servlet</servlet-name>
+  </filter-mapping>
+
   <context-param>
     <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
@@ -27,6 +37,12 @@
   <context-param>
     <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
     <param-value>resources.application</param-value>
+  </context-param>
+  
+  <context-param>
+  	<description>Our Primefaces theme of choice.</description>
+	<param-name>primefaces.THEME</param-name>
+	<param-value>redmond</param-value>
   </context-param>
   
   <listener>
