@@ -12,19 +12,38 @@
    		<composite:attribute name="notes" />
    		
     </composite:interface>
-		
-		
+				
 	<composite:implementation>
 		
 		<h3>#{ cc.attrs.title ne null ? cc.attrs.title : 'Noteboard' }</h3>
 
-		<div id="noteboard" />
+		<div id="noteboard" class="noteboard" />
 				
 		<script type="text/javascript">
 
 			$(document).ready(function() {
 				
-				$('#noteboard').notebook_Noteboard();
+				$('#noteboard').notebook_Noteboard( 
+					{
+						notes : [
+									<ui:repeat value="#{notebookManagerBean.demoNotes}" var="note">
+										{ 
+											"title" : "#{note.title}", 
+											"comments" : "#{note.comments}", 
+											"color" : "#{note.color.hexString}",  
+											"categories" :  [
+																<ui:repeat value="#{note.categories}" var="category">
+																	{
+																		"title" : "#{category.title}",
+																		"comments" : "#{category.comments}"
+																	},
+																</ui:repeat>
+															]
+										},
+									</ui:repeat>
+								]
+					} 
+				);
 				
 			});
 		

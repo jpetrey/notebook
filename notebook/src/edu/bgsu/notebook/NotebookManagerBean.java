@@ -2,6 +2,9 @@ package edu.bgsu.notebook;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -16,7 +19,7 @@ import org.primefaces.event.FileUploadEvent;
 public class NotebookManagerBean implements Serializable
 {
 	private static final long serialVersionUID = 4105775284798910753L;
-
+	
 	// The name of the application.  Declared here so it can be "plugged in" in other places throughout the GUI.
 	final static String applicationName = "Research Notebook Manager";
 
@@ -71,6 +74,18 @@ public class NotebookManagerBean implements Serializable
 		message.setSummary(summary);
 		message.setDetail(detail);
 		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+	
+	public List<Note> getDemoNotes()
+	{
+		List<Category> categories = Arrays.asList( new Category[]{ new Category("Demo Notes", "These are for demo/testing purposes only!") } );
+		List<Note> notes = new ArrayList<Note>();
+		for( int i = 0; i < 15; i++ )
+			notes.add( new Note("Note " + i + " Title", 
+								"Note " + i + " Comments",
+								NotebookColors.BLUE,
+								categories) );
+		return notes;
 	}
 	
 	// ---------- Generic getters and setters below here ----------

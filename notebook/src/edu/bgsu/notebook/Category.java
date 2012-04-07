@@ -9,7 +9,6 @@ import java.util.*;
 public class Category 
 {
     private String title;
-    private LinkedList<Note> notes;
     private String comments;
     
     /**
@@ -19,7 +18,6 @@ public class Category
     {
         this.title = title;
         this.comments = comments;
-        notes = new LinkedList<Note>();
     }
     
     /**
@@ -56,15 +54,5 @@ public class Category
     public String getTitle() 
     {
         return title;
-    }
-    
-    public void setNotes(LinkedList<Note> _notes) 
-    {
-        notes = _notes;
-    }
-    
-    public LinkedList<Note> getNotes() 
-    {
-        return notes;
     }
 }

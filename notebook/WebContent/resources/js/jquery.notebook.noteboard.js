@@ -3,7 +3,7 @@
         $.notebook = new Object();
     };
     
-    $.notebook.Noteboard = function(el, notes, options){
+    $.notebook.Noteboard = function(el, options){
         // To avoid scope issues, use 'base' instead of 'this'
         // to reference this class from internal events and functions.
         var base = this;
@@ -16,13 +16,51 @@
         base.$el.data("notebook.Noteboard", base);
         
         base.init = function(){
-            base.notes = notes;
-            
+        	
+        	// Extend the options object
             base.options = $.extend({},$.notebook.Noteboard.defaultOptions, options);
             
-            // Put your initialization code here
-            console.log('Noteboard jQuery plugin initializing!');
-            base.$el.css('background-color','#FF0000');
+            // Draw the notes
+            for( var i = 0; i < base.options.notes.length; i++ )
+            {
+            	var note = base.options.notes[i];
+            	console.log( note.title + ' (' + note.comments + ') - ' + note.color );
+            	
+            	for( var j = 0; j < note.categories.length; j++ )
+            	{
+            		var category = note.categories[j];
+            		console.log( '   ' + category.title + ' (' + category.comments + ')' );
+            	}
+            	
+            	// Draw each note
+            	var noteDiv = $(document.createElement('div'));
+            	noteDiv.addClass('note');
+            	var noteHeader = $(document.createElement('div'));
+            	noteHeader.addClass('noteHeader');
+            	noteHeader.text(note.title);
+            	var noteBody = $(document.createElement('div'));
+            	noteBody.addClass('noteBody');
+            	noteBody.text('Note body');
+            	var noteComments = $(document.createElement('div'));
+            	noteComments.addClass('noteComments');
+            	noteComments.text(note.comments);
+            	
+            	noteDiv.append(noteHeader);
+            	noteDiv.append(noteBody);
+            	noteDiv.append(noteComments);
+            	
+            	base.$el.append( noteDiv );
+           	}
+            
+            var p = $(document.createElement('p'));
+            p.css('clear','both');
+            base.$el.append(p);
+            
+            base.$el.sortable(
+            		{
+            			containment : base.$el
+            		});
+            
         };
         
         // Sample Function, Uncomment to use
@@ -35,12 +73,12 @@
     };
     
     $.notebook.Noteboard.defaultOptions = {
-        notes: "null"
+        notes: null
     };
     
-    $.fn.notebook_Noteboard = function(notes, options){
+    $.fn.notebook_Noteboard = function(options){
         return this.each(function(){
-            (new $.notebook.Noteboard(this, notes, options));
+            (new $.notebook.Noteboard(this, options));
         });
     };
     

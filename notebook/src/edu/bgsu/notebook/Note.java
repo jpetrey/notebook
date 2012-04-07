@@ -7,18 +7,18 @@ public class Note
 {
     private String title;
     private String comments;
-    private Color color;
+    private NotebookColors color;
     private List<Category> categories;
     
     /**
      *  Constructor for new note with categories.
      */
-    public Note(String title, String comments, Color color, List<Category> categories) 
+    public Note(String title, String comments, NotebookColors color, List<Category> categories) 
     {
         this.title = title != null ? title : "";
         this.comments = comments != null ? comments : "";
         this.categories = categories != null ? categories : new ArrayList<Category>();
-        this.color = color != null ? color : Color.BLACK;
+        this.color = color != null ? color : NotebookColors.BLACK;
     }
     
     public void removeCategory(Category category) 
@@ -36,7 +36,12 @@ public class Note
         this.categories.addAll(categories);
     }
     
-    public List<Category> getCategory() 
+    public void setCategories(List<Category> categories)
+    {
+    	this.categories = categories;
+    }
+    
+    public List<Category> getCategories() 
     {
         return categories;
     }
@@ -61,12 +66,12 @@ public class Note
         return comments;
     }
     
-    public void setColor(Color _color) 
+    public void setColor(NotebookColors _color) 
     {
         color = _color;
     }
     
-    public Color getColor() 
+    public NotebookColors getColor() 
     {
         return color;
     }
