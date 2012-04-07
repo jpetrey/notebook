@@ -1,136 +1,73 @@
-import java.util.*;
+package edu.bgsu.notebook;
 
-public class Note {
+import java.util.ArrayList;
+import java.util.List;
 
-    private int nid;
+public class Note
+{
     private String title;
     private String comments;
     private Color color;
-    private LinkedList<Category> categories;
+    private List<Category> categories;
     
-    /* Construtor for new note with categories */
-    public Note(String _title, String _comments, LinkedList<Category> _categories, Color _color) {
-    
-        title = _title;
-        comments = _comments;
-        categories = _categories;
-        color = _color;
-        
+    /**
+     *  Constructor for new note with categories.
+     */
+    public Note(String title, String comments, Color color, List<Category> categories) 
+    {
+        this.title = title != null ? title : "";
+        this.comments = comments != null ? comments : "";
+        this.categories = categories != null ? categories : new ArrayList<Category>();
+        this.color = color != null ? color : Color.BLACK;
     }
     
-    /* Constructor for a new note with one category */
-    public Note(String _title, String _comments, Category _category, Color _color) {
-        
-        title = _title;
-        comments = _comments;
-        categories = new LinkedList<Category>();
-        categories.add(_category);
-        color = _color;
-        
+    public void removeCategory(Category category) 
+    {
+        categories.remove(category);   
     }
     
-    /* Constructor for a new note with no categories */
-    public Note(String _title, String _comments, Color _color) {
-        
-        title = _title;
-        comments = _comments;
-        color = _color;
-        categories = new LinkedList<Category>();
-        
+    public void addCategory(Category category) 
+    {     
+        categories.add(category);
     }
     
-    /* Constructor for a copy of a note */
-    public Note(Note note) {
-        
-        title = note.title;
-        comments = note.comments;
-        color = note.color;
-        categories = note.categories;
-        
+    public void addCategories(List<Category> categories) 
+    {
+        this.categories.addAll(categories);
     }
     
-    /* Constructor for a note from OCR */
-    public Note() {
-       
-        
-        
-    }
-    
-    /*
-    public LinkedList<Category> searchForCategoriesInNote() {
-        
-        LinkedList<Category> results;
-        
-        return results;
-        
-    }
-    */
-    
-    public void sortCategoriesInNote() {
-        
-        
-        
-    }
-    
-    public void removeCategoryFromNote(Category _category) {
-        
-        categories.remove(_category);
-        _category.removeNoteFromCategory(this);
-        
-    }
-    
-    public void addCategoryToNote(Category _category) {
-        
-        categories.add(_category);
-        _category.addNoteToCategory(this);
-        
-    }
-    
-    public void setCategory(LinkedList<Category> _categories) {
-        
-        categories = _categories;
-        
-    }
-    
-    public LinkedList<Category> getCategory() {
-        
+    public List<Category> getCategory() 
+    {
         return categories;
-        
     }
     
-    public void setTitle(String _title) {
-        
+    public void setTitle(String _title) 
+    {
         title = _title;
-        
     }
     
-    public void setComments(String _comments) {
-        
+    public void setComments(String _comments) 
+    {
         comments = _comments;
-        
     }
     
-    public String getTitle() {
-        
+    public String getTitle() 
+    {
         return title;
-        
     }
     
-    public String getComments() {
-        
+    public String getComments() 
+    {
         return comments;
-        
     }
     
-    public void setColor(Color _color) {
-        
+    public void setColor(Color _color) 
+    {
         color = _color;
     }
     
-    public Color getColor() {
-        
+    public Color getColor() 
+    {
         return color;
-        
     }
-    
 }

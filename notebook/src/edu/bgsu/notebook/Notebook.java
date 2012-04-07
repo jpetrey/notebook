@@ -1,107 +1,70 @@
+package edu.bgsu.notebook;
+
 import java.io.*;
 import java.util.*;
 
-public class Notebook {
-
-    private int nbid;
+public class Notebook 
+{
     private String name;
     private LinkedList<Note> notes;
     private LinkedList<Category> categories;
     
-    /* Constructor for a blank notebook */
-    public Notebook(String _name) {
-        
+    /**
+     * Constructor for a blank notebook. 
+     * @param _name The name of the new notebook.
+     */
+    public Notebook(String _name) 
+    {
         name = _name;
+    }
+    
+    public void sortNotes() 
+    {
         
     }
     
-    /* Constructor for a copy of a notebook */
-    public Notebook(Notebook notebook) {
-        
-        name = notebook.name;
-        notes = notebook.notes;
-        categories = notebook.categories;
+    public void sortCategoriesk() 
+    {
         
     }
     
-    public void sortNotesInNotebook() {
-        
-        
-        
-    }
-    
-    public void sortCategoriesInNotebook() {
-        
-        
+    public void deleteCategory(Category category) 
+    {
         
     }
     
-    /*
-    
-    public LinkedList<Note> searchForNotesInNotebook() {
-        
-        LinkedList<Note> results;
-        
-        return results;
+    public void addCategory(Category category) 
+    {
         
     }
     
-    public LinkedList<Category> searchForCategoriesInNotebook() {
-        
-        LinkedList<Category> results;
-        
-        return results;
+    public void deleteNote(Note note) 
+    {
         
     }
     
-    */
-    
-    public void deleteCategory(Category category) {
-        
-        
+    public void addNote(Note note) 
+    {
         
     }
     
-    public void addCategory(Category category) {
-        
-        
+    public void writeFile(File file) 
+    {
+
+    }
+    
+    public void readFile(File file) 
+    {
         
     }
     
-    public void deleteNote(Note note) {
-        
-        
-        
-    }
-    
-    public void addNote(Note note) {
-        
-        
-        
-    }
-    
-    public void writeFile(File file) {
-        
-        
-        
-    }
-    
-    public void readFile(File file) {
-        
-        
-        
-    }
-    
-    public String getName() {
-        
+    public String getName() 
+    {
         return name;
-        
     }
     
-    public void setName(String _name) {
-        
+    public void setName(String _name)
+    {
         name = _name;
-        
     }
-    
 }
