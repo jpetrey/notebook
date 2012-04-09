@@ -35,7 +35,7 @@ public class Note
 		categories.remove(category);   
 	}
 
-	public void addCategory(Category category) 
+	public void setCategory(Category category) 
 	{     
 		categories.add(category);
 	}
@@ -45,7 +45,7 @@ public class Note
 		this.categories.addAll(categories);
 	}
 
-	public List<Category> getCategory() 
+	public List<Category> getCategories() 
 	{
 		return categories;
 	}
@@ -70,12 +70,12 @@ public class Note
 		return comments;
 	}
 
-	public void setNotebookColors(NotebookColors _NotebookColors) 
+	public void setColor(NotebookColors color) 
 	{
-		color = _NotebookColors;
+		this.color = color;
 	}
 
-	public NotebookColors getNotebookColors() 
+	public NotebookColors getColor() 
 	{
 		return color;
 	}
