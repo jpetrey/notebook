@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:note="http://java.sun.com/jsf/composite/notebook">
       
 	<h:head>
         <h:outputStylesheet name="css/screen.css"/>
@@ -12,13 +13,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" />
         
         <h:outputScript library="js" name="jquery.notebook.noteboard.js" />
+        <h:outputScript library="js" name="jquery.notebook.keyboard.js" />
         
         <h:outputStylesheet library="css" name="noteboard.css" />
+        
+        
         
 		<title>Research Notebook Manager</title>
 	</h:head>
 
 	<h:body>
+	
+		<note:keyboard />
 	
 		<div id="header">
 		    <h2>Research Notebook Manager</h2>
