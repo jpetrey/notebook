@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Named;
 
 import org.primefaces.event.FileUploadEvent;
@@ -25,6 +26,8 @@ public class NotebookManagerBean implements Serializable
 
 	// The body text of the currently-loaded note.
 	private String noteText = "";
+	
+	private String autocompleteText = "word";
 
 	/**
 	 * Default constructor.
@@ -80,7 +83,7 @@ public class NotebookManagerBean implements Serializable
 	{
 		List<Category> categories = Arrays.asList( new Category[]{ new Category("Demo Notes", "These are for demo/testing purposes only!") } );
 		List<Note> notes = new ArrayList<Note>();
-		for( int i = 0; i < 15; i++ )
+		for( int i = 0; i < 10; i++ )
 			notes.add( new Note("Note " + i + " Title", 
 								"Note " + i + " Comments",
 								NotebookColors.BLUE,
@@ -88,7 +91,24 @@ public class NotebookManagerBean implements Serializable
 		return notes;
 	}
 	
+	public void autocompleteValueChanged(ValueChangeEvent e)
+	{
+		System.out.println("Autocomplete text changed: " + (String)e.getNewValue());
+		// TODO
+	}
+	
 	// ---------- Generic getters and setters below here ----------
+	
+	public String getAutocompleteText() 
+	{
+		return autocompleteText;
+	}
+
+	public void setAutocompleteText(String autocompleteText) 
+	{
+		System.out.println("Changing autocomplete text: " + autocompleteText);
+		this.autocompleteText = autocompleteText;
+	}
 	
 	/**
 	 * Returns the name of the application.

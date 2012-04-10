@@ -16,13 +16,27 @@
 
 			$(document).ready(function() {
 
-				$(document).notebook_Keyboard();
+				$(document).notebook_Keyboard( {
+						'clientId' : '#{cc.clientId}',
+						'keyboardElement' : 'keyboard',
+						'autocompleteValueElement' : 'autocomplete',
+						'diameter' : '400',
+						'color' : 'cornflowerblue',
+						'numOptions' : '26',
+						'characterSet' : [
+								'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
+							]
+					});
 				
 			});
 		
 		</script>
 		
-		<div id="holder" />
+		<div id="keyboard" />
+		
+		<h:inputText style="display:none;" id="autocomplete" value="#{notebookManagerBean.autocompleteText}">
+			<p:ajax event="change" />
+		</h:inputText>
 		
 	</composite:implementation>
 	
